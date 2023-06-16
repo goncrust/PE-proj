@@ -18,7 +18,7 @@ for (t in time) events[[ceiling(t)]] <- events[[ceiling(t)]] + 1
 
 # Getting the expected values and the mean
 mean <- mean(events);
-expected <- (1/lambda); # Expected Val of Exponential is 1/lambda
+expected <- lambda; # Expected Val of Poisson is lambda
 
 # Calculating the answer
 ans <- abs(mean - expected);
