@@ -7,12 +7,14 @@ size <- 1026
 # Obter valores simulados
 simulados <- c()
 set.seed(1306)
-for (i in 1:size) {
+while (length(simulados) != size) {
   u <- runif(1, 0, 1)
   x <- 0
   
   while(u > pgeom(x, param_geom)) {x <- x + 1}
-  simulados <- c(simulados, x)
+  if (pgeom(x-1, param_geom) < u & u <= pgeom(x, param_geom)) {
+    simulados <- c(simulados, x)
+  }
 }
 
 # Obter média e stdev amostrais
@@ -24,5 +26,4 @@ divisor <- length(simulados[simulados > mean])
 dividendo <- length(simulados[simulados > mean + stdev] )
 
 ans <- round(dividendo/divisor, 4)
-
 ans

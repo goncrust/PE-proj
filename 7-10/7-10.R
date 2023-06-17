@@ -15,6 +15,6 @@ for (i in 1:amostras){
 # quantil 0.62 - quantil da dist. teórica
 
 q <- quantile(sqsum, 0.62, type=2)
-chi <- qchisq(0.62, df=dim-1)
+chi <- qchisq(0.62, df=dim)
 q <- as.numeric(q)
 ans <- round(q-chi, 4)

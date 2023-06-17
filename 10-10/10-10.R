@@ -7,16 +7,17 @@ var <- 4
 miu0 <- 37.5
 alpha <- 0.02
 sample_size <- 45
+gamma <- 38.7
 
 var_fulcral <- function(x) {
-  return((mean(x) - 37.5)/(2/sqrt(length(x))))
+  return((mean(x) - miu0)/(sqrt(var)/sqrt(length(x))))
 }
 
 # Teste
 rejeicoes <- 0
 for (i in 1:test_count) {
-  sample <- rnorm(sample_size, 38.7, sqrt(var))
-  quantil <- qnorm(1-alpha/2, 0, 1)
+  sample <- rnorm(sample_size, gamma, sqrt(var))
+  quantil <- qnorm(1-(alpha/2))
   stat_teste <- var_fulcral(sample)
   if (stat_teste < -quantil || stat_teste > quantil) {
     rejeicoes <- rejeicoes + 1
