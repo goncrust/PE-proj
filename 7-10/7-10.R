@@ -18,3 +18,4 @@ q <- quantile(sqsum, 0.62, type=2)
 chi <- qchisq(0.62, df=dim)
 q <- as.numeric(q)
 ans <- round(q-chi, 4)
+ans
