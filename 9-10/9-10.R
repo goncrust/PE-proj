@@ -12,19 +12,15 @@ met_2 <- function(x) {
     return(qnorm(1 - confidence/2)*sqrt(mx*(1-mx)/n))    
 }
 
-met_1_aux <- function(x) {
-    n <- length(x)
-    mx <- mean(x)
-    z <- qnorm((1 + confidence)/2)
-    return(sqrt((-((z^2)/n)-2*mx)^2 - 4*mx^2*(((z^2)/n)+1)))
-}
-
 met_1 <- function(x) {
     n <- length(x)
     mx <- mean(x)
     z <- qnorm((1 + confidence)/2)
-    root1 <- ((((z^2)/n)+2*mx) + met_1_aux(x))/(2*(((z^2)/n)+1))
-    root2 <- ((((z^2)/n)+2*mx) - met_1_aux(x))/(2*(((z^2)/n)+1))
+    a <- 1 + (z^2)/n
+    b <- -2*mx - (z^2)/n
+    c <- mx^2
+    root1 <- (-b - sqrt(b^2 - 4*a*c))/(2*a)
+    root2 <- (-b + sqrt(b^2 - 4*a*c))/(2*a)
     return(abs(root1 - root2))
 }
 
