@@ -25,4 +25,4 @@ for (i in 1:test_count) {
 
 # Resultado
 ans <- 1 - round(rejeicoes/test_count, 3)
-print(ans)
+ans

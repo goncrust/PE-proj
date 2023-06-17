@@ -18,6 +18,8 @@ for (i in 1:tamanho) {
 # Junta os dois conjuntos numa dataframe só
 df <- as.data.frame(quantil)
 df$values <- values
+
+# Adiciona a coluna da distribuição normal
 df$values2 <- sort(rnorm(tamanho, -2.8, 1.183))
 
 # Desenha o gráfico dos dois conjuntos

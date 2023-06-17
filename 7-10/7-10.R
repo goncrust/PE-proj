@@ -2,10 +2,10 @@
 
 amostras <- 1740
 dim <- 15
+set.seed(1805)
 
 # sqsum é lista de soma dos quadrados dos valores observados das 1740 amostras
 sqsum <- c()
-set.seed(1805)
 for (i in 1:amostras){
   r <- rnorm(dim, 0, 1)
   r <- sum(r^2)
