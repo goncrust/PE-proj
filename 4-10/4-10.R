@@ -1,14 +1,16 @@
 # Projeto de PE: 4-10
 
 # Setup
-lambda <- 7.5
-size <- 2072
 set.seed(4267);
-sample <- rexp(size, lambda);
+k <- 2072
+lambda <- 7.5
+
+# Gen sample
+sample <- rexp(k, lambda);
 
 # Calculating constants
 time <- cumsum(sample);
-T <- ceiling(time[[size]]);
+T <- ceiling(time[[k]]);
 
 # Getting the amount of events per second; events ~ Poi(lambda)
 #intervals <- 1:T
